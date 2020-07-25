@@ -38,30 +38,16 @@ class Sidebar extends React.Component {
         data-color={this.props.bgColor}
         data-active-color={this.props.activeColor}
       >
-        <div className="sidebar-profile">
-          <div className="sidebar-profile-info">
-            <div className="logo-img">
-              <img src={logo} alt="react-logo" />
+        <div className="logo">
+          <div className="sidebar-profile">
+            <div className="sidebar-profile-info">
+              <div className="logo-img">
+                <img src={logo} alt="react-logo" />
+              </div>
             </div>
             <p> João Marcelo </p>
             <p> Curitiba - PR </p>
           </div>
-        </div>
-        <div className="logo">
-          <a
-            href="https://www.creative-tim.com"
-            className="simple-text logo-mini"
-          >
-            <div className="logo-img">
-              <img src={logo} alt="react-logo" />
-            </div>
-          </a>
-          <a
-            href="https://www.creative-tim.com"
-            className="simple-text logo-normal"
-          >
-            TEAM MICRO
-          </a>
         </div>
         <div className="sidebar-wrapper" ref={this.sidebar}>
           <Nav>
