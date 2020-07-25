@@ -12,8 +12,8 @@ var routes = [
     layout: "/admin",
   },
   {
-    path: "/icons",
-    name: "My Profile",
+    path: "/profile",
+    name: "Meu perfil",
     icon: "fa fa-user",
     component: RegisterUser,
     layout: "/admin",

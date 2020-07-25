@@ -63,7 +63,7 @@ $default-states-color: #403d39 !default;
 $smoke-bg: #f5f5f5 !default;
 $pale-bg: #fffcf5 !default;
 $medium-pale-bg: #f1eae0 !default;
-$default-body-bg: #e1f4f1 !default;
+$default-body-bg: #eee !default;
 
 $primary-color: #51cbce !default;
 $primary-states-color: darken($primary-color, 10%) !default;
@@ -71,7 +71,7 @@ $primary-states-color: darken($primary-color, 10%) !default;
 $success-color: #6bd098 !default;
 $success-states-color: darken($success-color, 10%) !default;
 
-$info-color: #51bcda !default;
+$info-color: white !default;
 $info-states-color: darken($info-color, 10%) !default;
 
 $warning-color: #fbc658 !default;
@@ -125,7 +125,7 @@ $brand-danger: $danger-color !default;
 $brand-inverse: $black-color !default;
 
 $link-disabled-color: #666666 !default;
-$dark-color: white !default;
+$dark-color: #66c4de !default;
 //     light colors
 $light-blue: rgba($primary-color, 0.2);
 $light-azure: rgba($info-color, 0.2);
