@@ -1,8 +1,10 @@
 {
-  "color-highlight.languages": [
-
-    "*"
-  ],
+  "color-highlight.languages": ["*"],
   "editor.formatOnPaste": true,
   "editor.formatOnSave": true,
+  "workbench.colorCustomizations": {
+    "activityBar.background": "#203033",
+    "titleBar.activeBackground": "#2C4448",
+    "titleBar.activeForeground": "#F7FAFA"
+  }
 }

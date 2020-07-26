@@ -7,8 +7,10 @@ import "bootstrap/dist/css/bootstrap.css";
 import "assets/scss/paper-dashboard.scss?v=1.2.0";
 import "assets/demo/demo.css";
 import "perfect-scrollbar/css/perfect-scrollbar.css";
+import "bootstrap/dist/css/bootstrap.css";
 
 import AdminLayout from "layouts/Admin.js";
+import AuthLayout from "layouts/Auth.js";
 
 const hist = createBrowserHistory();
 
@@ -16,6 +18,7 @@ ReactDOM.render(
   <Router history={hist}>
     <Switch>
       <Route path="/admin" render={(props) => <AdminLayout {...props} />} />
+      <Route path="/auth" render={(props) => <AuthLayout {...props} />} />
       <Redirect to="/admin/dashboard" />
     </Switch>
   </Router>,
