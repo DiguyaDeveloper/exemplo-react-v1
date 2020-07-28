@@ -1,0 +1,43 @@
+.color-white {
+  color: black !important;
+}
+.form-register {
+  Input {
+    width: 100px;
+  }
+}
+
+.termo-condit {
+  color: blue;
+}
+
+.container-text {
+  padding-top: 15px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+
+  .container-text-1-title {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    .div-img {
+      width: 50px;
+    }
+    .div-text {
+      padding-left: 10px;
+      font-weight: 500;
+    }
+  }
+  .container-text-1 {
+    text-align: justify;
+    padding-left: 60px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    line-height: 18px;
+    opacity: 0.8;
+    font-weight: 0;
+    font-size: 14px;
+  }
+}
