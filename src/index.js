@@ -11,6 +11,7 @@ import "bootstrap/dist/css/bootstrap.css";
 
 import AdminLayout from "layouts/Admin.js";
 import AuthLayout from "layouts/Auth.js";
+import HomeLayout from "layouts/Home.js";
 
 const hist = createBrowserHistory();
 
@@ -19,6 +20,7 @@ ReactDOM.render(
     <Switch>
       <Route path="/admin" render={(props) => <AdminLayout {...props} />} />
       <Route path="/auth" render={(props) => <AuthLayout {...props} />} />
+      <Route path="/" render={(props) => <HomeLayout {...props} />} />
       <Redirect to="/admin/dashboard" />
     </Switch>
   </Router>,
