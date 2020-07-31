@@ -1,5 +1,4 @@
 import Dashboard from "views/Dashboard.js";
-import Notifications from "views/Notifications.js";
 import UserPage from "views/User.js";
 import RegisterUser from "views/RegisterUser";
 import Register from "views/Register";
@@ -19,13 +18,6 @@ var routes = [
     name: "Meu perfil",
     icon: "fa fa-user",
     component: RegisterUser,
-    layout: "/admin",
-  },
-  {
-    path: "/notifications",
-    name: "Notifications",
-    icon: "nc-icon nc-bell-55",
-    component: Notifications,
     layout: "/admin",
   },
   {
@@ -56,7 +48,8 @@ var routes = [
     icon: "ni ni-circle-08 text-pink",
     component: Register,
     layout: "/auth",
-  }, {
+  },
+  {
     path: "/",
     name: "Home",
     icon: "ni ni-circle-08 text-pink",
