@@ -13,6 +13,7 @@ import AdminLayout from "layouts/Admin.js";
 import AuthLayout from "layouts/Auth.js";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import HomeLayout from "layouts/Home.js";
 
 const hist = createBrowserHistory();
 
@@ -21,7 +22,8 @@ ReactDOM.render(
     <Switch>
       <Route path="/admin" render={(props) => <AdminLayout {...props} />} />
       <Route path="/auth" render={(props) => <AuthLayout {...props} />} />
-      <Redirect to="/admin/dashboard" />
+      <Route path="/" render={(props) => <HomeLayout {...props} />} />
+      <Redirect to="/" />
     </Switch>
     <ToastContainer closeButton={true} position="top-right" />
   </Router>,

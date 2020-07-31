@@ -4,6 +4,7 @@ import UserPage from "views/User.js";
 import RegisterUser from "views/RegisterUser";
 import Register from "views/Register";
 import Login from "views/Login";
+import Home from "views/Home";
 
 var routes = [
   {
@@ -55,6 +56,12 @@ var routes = [
     icon: "ni ni-circle-08 text-pink",
     component: Register,
     layout: "/auth",
+  }, {
+    path: "/",
+    name: "Home",
+    icon: "ni ni-circle-08 text-pink",
+    component: Home,
+    layout: "/home",
   },
 ];
 export default routes;
