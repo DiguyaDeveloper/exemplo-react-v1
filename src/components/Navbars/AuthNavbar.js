@@ -55,7 +55,7 @@ class AdminNavbar extends React.Component {
                 <NavItem>
                   <NavLink className="nav-link-icon" to="/" tag={Link}>
                     <i className="ni ni-planet" />
-                    <span className="nav-link-inner--text">Dashboard</span>
+                    <span className="nav-link-inner--text">Home</span>
                   </NavLink>
                 </NavItem>
                 <NavItem>
@@ -76,16 +76,6 @@ class AdminNavbar extends React.Component {
                   >
                     <i className="ni ni-key-25" />
                     <span className="nav-link-inner--text">Login</span>
-                  </NavLink>
-                </NavItem>
-                <NavItem>
-                  <NavLink
-                    className="nav-link-icon"
-                    to="/admin/user-profile"
-                    tag={Link}
-                  >
-                    <i className="ni ni-single-02" />
-                    <span className="nav-link-inner--text">Profile</span>
                   </NavLink>
                 </NavItem>
               </Nav>

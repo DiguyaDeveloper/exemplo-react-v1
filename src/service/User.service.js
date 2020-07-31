@@ -69,4 +69,54 @@ export class UserService {
       })
       .finally(function () {});
   }
+
+  async resetPassword(req) {
+    const body = { email: req.email };
+
+    return axios
+      .put(this.config.ITEM_COLLECTION_URL + "/users/new_password", body)
+      .then((res) => {
+        return res;
+      })
+      .catch(function (error) {
+        if (error.response) {
+          switch (error.response.status) {
+            case 400:
+              toast.error(error.response.data.error);
+              return error.response.data;
+            case 500:
+              return "Internal error";
+            default:
+              break;
+          }
+          console.log(error);
+        }
+      })
+      .finally(function () {});
+  }
+
+  async authenticate(req) {
+    const body = { email: req.email, password: req.password };
+
+    return axios
+      .post(this.config.ITEM_COLLECTION_URL + "/users/authenticate", body)
+      .then((res) => {
+        return res;
+      })
+      .catch(function (error) {
+        if (error.response) {
+          switch (error.response.status) {
+            case 400:
+              toast.error(error.response.data.error);
+              return error.response.data;
+            case 500:
+              return "Internal error";
+            default:
+              break;
+          }
+          console.log(error);
+        }
+      })
+      .finally(function () {});
+  }
 }
