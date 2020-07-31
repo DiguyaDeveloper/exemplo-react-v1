@@ -11,6 +11,8 @@ import "bootstrap/dist/css/bootstrap.css";
 
 import AdminLayout from "layouts/Admin.js";
 import AuthLayout from "layouts/Auth.js";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const hist = createBrowserHistory();
 
@@ -21,6 +23,7 @@ ReactDOM.render(
       <Route path="/auth" render={(props) => <AuthLayout {...props} />} />
       <Redirect to="/admin/dashboard" />
     </Switch>
+    <ToastContainer closeButton={true} position="top-right" />
   </Router>,
   document.getElementById("root")
 );
