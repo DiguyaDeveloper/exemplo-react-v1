@@ -31,6 +31,7 @@
 @import "paper-dashboard/cards/card-user";
 @import "paper-dashboard/cards/card-map";
 @import "paper-dashboard/cards/card-stats";
+@import "paper-dashboard/cards/card-hashtag";
 
 @import "paper-dashboard/responsive";
 
@@ -44,7 +45,7 @@
 @import "paper-dashb.scss";
 
 //Home
-@import "paper-initial/_head";
+@import "paper-initial/head";
 @import "paper-initial/body_home";
 @import "paper-initial/footer";
 @import "paper-initial/menu";
