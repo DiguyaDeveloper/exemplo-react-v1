@@ -42,7 +42,11 @@ class Sidebar extends React.Component {
           <div className="sidebar-profile">
             <div className="sidebar-profile-info">
               <div className="logo-img">
-                <img src={logo} alt="react-logo" />
+                <img
+                  src={require("assets/img/mike.jpg")}
+                  alt="react-logo"
+                  className="image"
+                />
               </div>
             </div>
             <p> João Marcelo </p>

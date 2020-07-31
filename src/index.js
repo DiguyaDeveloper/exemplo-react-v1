@@ -7,8 +7,13 @@ import "bootstrap/dist/css/bootstrap.css";
 import "assets/scss/paper-dashboard.scss?v=1.2.0";
 import "assets/demo/demo.css";
 import "perfect-scrollbar/css/perfect-scrollbar.css";
+import "bootstrap/dist/css/bootstrap.css";
 
 import AdminLayout from "layouts/Admin.js";
+import AuthLayout from "layouts/Auth.js";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import HomeLayout from "layouts/Home.js";
 
 const hist = createBrowserHistory();
 
@@ -16,8 +21,11 @@ ReactDOM.render(
   <Router history={hist}>
     <Switch>
       <Route path="/admin" render={(props) => <AdminLayout {...props} />} />
-      <Redirect to="/admin/dashboard" />
+      <Route path="/auth" render={(props) => <AuthLayout {...props} />} />
+      <Route path="/" render={(props) => <HomeLayout {...props} />} />
+      <Redirect to="/" />
     </Switch>
+    <ToastContainer closeButton={true} position="top-right" />
   </Router>,
   document.getElementById("root")
 );
