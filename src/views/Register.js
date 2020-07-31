@@ -19,6 +19,7 @@ class Register extends React.Component {
       showVerifyCode: false,
       token: "",
       tokenError: null,
+      userId: null,
       form: {
         fullname: "",
         username: "",
@@ -78,12 +79,56 @@ class Register extends React.Component {
       this.setState({ tokenError: "Please complete code verify" });
       return;
     }
+    this.setState({ token: e });
     this.setState({ tokenError: null });
     return;
   };
 
+  handleSubmitVerifyEmail = () => {
+    console.log("fazendo login", this.state.userId, this.state.token);
+    if (!this.state.token) {
+      toast.error("Please set your verify code");
+    }
+
+    this.userService
+      .confirmEmail(this.state.userId, this.state.token)
+      .then((res) => {
+        if (!res.error) {
+          toast.success("Success verify mail");
+        }
+      });
+  };
+
+  handleSubmit = () => {
+    const { form, formErrors } = this.state;
+    const errorObj = this.validateForm(form, formErrors, this.validateField);
+    if (Object.keys(errorObj).length !== 0) {
+      this.setState({ formErrors: { ...formErrors, ...errorObj } });
+      return false;
+    }
+
+    const req = {
+      fullname: form.fullname,
+      email: form.email,
+      username: form.username,
+      password: form.password,
+      state: form.state,
+      country: form.country,
+      help: form.help,
+      acceptTerm: form.acceptTerm,
+    };
+
+    this.userService.createUser(req, this.file).then((res) => {
+      if (!res.error) {
+        this.setState({ showForm: false, showVerifyCode: true });
+        if (res.data._id) {
+          this.setState({ userId: res.data._id });
+        }
+      }
+    });
+  };
+
   handleChange = (e) => {
-    console.log(e.target.value);
     const { name, value, checked } = e.target;
     const { form, formErrors } = this.state;
     let formObj = {};
@@ -181,33 +226,6 @@ class Register extends React.Component {
       if (msg) errorObj[x] = msg;
     });
     return errorObj;
-  };
-
-  handleSubmit = () => {
-    const { form, formErrors } = this.state;
-    const errorObj = this.validateForm(form, formErrors, this.validateField);
-    if (Object.keys(errorObj).length !== 0) {
-      this.setState({ formErrors: { ...formErrors, ...errorObj } });
-      return false;
-    }
-
-    console.log(form);
-    const req = {
-      fullname: form.fullname,
-      email: form.email,
-      username: form.username,
-      password: form.password,
-      state: form.state,
-      country: form.country,
-      help: form.help,
-      acceptTerm: form.acceptTerm,
-    };
-
-    this.userService.createUser(req, this.file).then((res) => {
-      if (!res.error) {
-        this.setState({ showForm: false, showVerifyCode: true });
-      }
-    });
   };
 
   render() {
@@ -572,7 +590,7 @@ class Register extends React.Component {
                           className="mt-4"
                           color="primary"
                           type="submit"
-                          onClick={this.handleSubmit}
+                          onClick={this.handleSubmitVerifyEmail}
                         >
                           Confirmation account
                         </Button>

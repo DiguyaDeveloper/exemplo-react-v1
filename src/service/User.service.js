@@ -41,4 +41,32 @@ export class UserService {
       })
       .finally(function () {});
   }
+
+  async confirmEmail(userId, codigo) {
+    const body = { user_id: userId, codigo: codigo };
+
+    return axios
+      .post(
+        this.config.ITEM_COLLECTION_URL + "/users/update_accountStatus_code",
+        body
+      )
+      .then((res) => {
+        return res;
+      })
+      .catch(function (error) {
+        if (error.response) {
+          switch (error.response.status) {
+            case 400:
+              toast.error(error.response.data.error);
+              return error.response.data;
+            case 500:
+              return "Internal error";
+            default:
+              break;
+          }
+          console.log(error);
+        }
+      })
+      .finally(function () {});
+  }
 }
