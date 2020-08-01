@@ -1,0 +1,53 @@
+@import "shawime-dashboard/variables";
+@import "shawime-dashboard/mixins";
+
+// Plugins CSS
+@import "shawime-dashboard/plugins/plugin-animate-bootstrap-notify";
+@import "shawime-dashboard/plugins/plugin-perfect-scrollbar";
+
+// Core CSS
+@import "shawime-dashboard/buttons";
+@import "shawime-dashboard/inputs";
+@import "shawime-dashboard/typography";
+@import "shawime-dashboard/misc";
+@import "shawime-dashboard/checkboxes-radio";
+
+// components
+@import "shawime-dashboard/navbar";
+@import "shawime-dashboard/page-header";
+@import "shawime-dashboard/dropdown";
+@import "shawime-dashboard/alerts";
+@import "shawime-dashboard/images";
+@import "shawime-dashboard/nucleo-outline";
+@import "shawime-dashboard/tables";
+@import "shawime-dashboard/sidebar-and-main-panel";
+@import "shawime-dashboard/footers";
+@import "shawime-dashboard/fixed-plugin";
+
+// cards
+@import "shawime-dashboard/cards";
+@import "shawime-dashboard/cards/card-plain";
+@import "shawime-dashboard/cards/card-chart";
+@import "shawime-dashboard/cards/card-user";
+@import "shawime-dashboard/cards/card-map";
+@import "shawime-dashboard/cards/card-stats";
+@import "shawime-dashboard/cards/card-hashtag";
+
+@import "shawime-dashboard/responsive";
+@import "paper-dashb.scss";
+
+// html to react differences
+@import "shawime-dashboard/react/react-differences.scss";
+// Import Bootstrap and its default variables
+
+//register
+@import "paper-dashb.scss";
+
+//Home
+@import "paper-initial/head";
+@import "paper-initial/body_home";
+@import "paper-initial/footer";
+@import "paper-initial/menu";
+
+//chat
+@import "shawime-dashboard/chat/chat_body.scss";

@@ -1,60 +1,67 @@
-import Dashboard from "views/Dashboard.js";
-import UserPage from "views/User.js";
 import RegisterUser from "views/RegisterUser";
 import Register from "views/Register";
 import Login from "views/Login";
 import Home from "views/Home";
+import Hashtag from "views/Hashtag";
+import Group from "views/Group";
+import Chat from "views/Chat";
+import Dashboard from "views/Dashboard";
 
 var routes = [
   {
     path: "/dashboard",
     name: "Dashboard",
+    identifier: "/admin/dashboard",
     icon: "nc-icon nc-bank",
     component: Dashboard,
     layout: "/admin",
   },
   {
+    path: "/",
+    name: "Home",
+    icon: "nc-icon nc-bank",
+    identifier: "/home",
+    component: Home,
+    layout: "/home",
+  },
+  {
+    path: "/hashtags",
+    name: "Hashtags",
+    icon: "nc-icon nc-bank",
+    identifier: "/admin/hashtags",
+    component: Hashtag,
+    layout: "/admin",
+  },
+  {
     path: "/profile",
+    identifier: "/admin/profile",
     name: "Meu perfil",
     icon: "fa fa-user",
     component: RegisterUser,
     layout: "/admin",
   },
   {
-    path: "/user-page",
-    name: "User Profile",
-    icon: "nc-icon nc-single-02",
-    component: UserPage,
-    layout: "/admin",
+    path: "/hashtag/:hash",
+    component: Group,
+    identifier: "admin/groups/hashtag",
+    layout: "/admin/groups",
   },
   {
-    pro: true,
-    path: "/upgrade",
-    name: "LOGOUT",
-    icon: "nc-icon nc-spaceship",
-    component: Dashboard,
-    layout: "/admin",
+    path: "/room/:group",
+    component: Chat,
+    layout: "/admin/chat",
   },
   {
     path: "/login",
-    name: "Login",
-    icon: "ni ni-key-25 text-info",
+    identifier: "/auth/login",
     component: Login,
     layout: "/auth",
   },
   {
     path: "/register",
-    name: "Register",
-    icon: "ni ni-circle-08 text-pink",
+    identifier: "/auth/register",
     component: Register,
     layout: "/auth",
-  },
-  {
-    path: "/",
-    name: "Home",
-    icon: "ni ni-circle-08 text-pink",
-    component: Home,
-    layout: "/home",
   },
 ];
 export default routes;

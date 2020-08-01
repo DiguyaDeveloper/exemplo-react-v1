@@ -1,19 +1,46 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import { Nav } from "reactstrap";
-// javascript plugin used to create scrollbars on windows
 import PerfectScrollbar from "perfect-scrollbar";
-
-import logo from "logo.svg";
-
+import { getUserLogado } from "../../service/Auth.service";
+import { UserService } from "../../service/User.service";
+import {
+  login,
+  usuario,
+  getUserImage,
+  userImage,
+} from "../../service/Auth.service";
 var ps;
 
 class Sidebar extends React.Component {
+  userLogadoSistem;
+
   constructor(props) {
     super(props);
     this.activeRoute.bind(this);
     this.sidebar = React.createRef();
+    this.userService = new UserService();
+
+    this.state = {
+      img_user: "",
+      acceptTerm: "",
+      confirmation_code: "",
+      country: "",
+      createdAt: "",
+      email: "",
+      fullname: "",
+      help: "",
+      picture: "",
+      state: "",
+      statusAccount: "",
+      updatedAt: "",
+      username: "",
+      _id: "",
+    };
+
+    this.getImageUsuario();
   }
+
   // verifies if routeName is the one active (in browser input)
   activeRoute(routeName) {
     return this.props.location.pathname.indexOf(routeName) > -1 ? "active" : "";
@@ -31,7 +58,50 @@ class Sidebar extends React.Component {
       ps.destroy();
     }
   }
+
+  getUsuarioLogado = () => {
+    this.userLogadoSistem = JSON.parse(getUserLogado());
+  };
+
+  getImageUsuario = () => {
+    let img;
+    this.userService.getImagemUser().then((res) => {
+      console.log(this.userLogadoSistem);
+      img = res.data.find((element) => {
+        if (element.title === this.userLogadoSistem.picture) {
+          return element.img_url;
+        }
+      });
+      console.log(img);
+      this.setState((prev) => ({
+        ...prev,
+        img_user: img.img_url,
+      }));
+
+      userImage(img.img_url);
+    });
+  };
+
   render() {
+    this.getUsuarioLogado();
+
+    const {
+      acceptTerm,
+      confirmation_code,
+      country,
+      createdAt,
+      email,
+      fullname,
+      help,
+      picture,
+      state,
+      statusAccount,
+      updatedAt,
+      username,
+      _id,
+    } = this.userLogadoSistem;
+
+    // console.log("joao lindo", this.state);
     return (
       <div
         className="sidebar"
@@ -42,15 +112,14 @@ class Sidebar extends React.Component {
           <div className="sidebar-profile">
             <div className="sidebar-profile-info">
               <div className="logo-img">
-                <img
-                  src={require("assets/img/mike.jpg")}
-                  alt="react-logo"
-                  className="image"
-                />
+                <img src={this.state.img_user} alt="user - Image" />
               </div>
             </div>
-            <p> João Marcelo </p>
-            <p> Curitiba - PR </p>
+            <p className="text-uppercase"> {fullname} </p>
+            <p>
+              {" "}
+              {/* {state} -*/} {country}{" "}
+            </p>
           </div>
         </div>
         <div className="sidebar-wrapper" ref={this.sidebar}>
