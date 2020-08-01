@@ -1,8 +1,10 @@
 import React from "react";
+import { Link, withRouter } from "react-router-dom";
 import { Button, Card, CardHeader, CardBody, Row, Col } from "reactstrap";
 import { UserService } from "../service/User.service";
 import ReactCodeInput from "react-verification-code-input";
 import { toast } from "react-toastify";
+import { login, usuario } from "./../service/Auth.service";
 
 class Login extends React.Component {
   constructor() {
@@ -35,11 +37,6 @@ class Login extends React.Component {
 
   handlePostResetPassword = () => {
     const { form, formErrors } = this.state;
-
-    if (!this.state.emailRecovery) {
-      toast.error("Please input your email");
-    }
-
     const req = {
       email: form.emailRecovery,
     };
@@ -80,7 +77,8 @@ class Login extends React.Component {
     return errorObj;
   };
 
-  handleSubmit = () => {
+  handleSubmit = async (e) => {
+    e.preventDefault();
     const { form, formErrors } = this.state;
     const errorObj = this.validateForm(form, formErrors, this.validateField);
 
@@ -91,9 +89,13 @@ class Login extends React.Component {
 
     this.userService.authenticate(req).then((res) => {
       if (!res.error) {
-        toast.success("Success verify mail");
+        toast.success("Loggin with success");
+        login(res.data.token);
+        const userLogin = res.data.user;
+        usuario(userLogin);
+        console.log(userLogin);
+        this.props.history.push("/admin/dashboard");
       }
-      console.log(res);
       if (res.error) {
         if (res.error && res.userStatusBlock) {
           this.handleVerifyCodeShow();

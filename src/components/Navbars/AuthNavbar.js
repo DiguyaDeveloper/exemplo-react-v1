@@ -26,7 +26,8 @@ class AdminNavbar extends React.Component {
               <img
                 alt="..."
                 src={require("assets/img/logo.png")}
-                width="150px"
+                width="500"
+                height="150px"
               />
             </NavbarBrand>
             <button className="navbar-toggler" id="navbar-collapse-main">

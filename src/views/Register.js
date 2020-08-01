@@ -123,6 +123,7 @@ class Register extends React.Component {
         this.setState({ showForm: false, showVerifyCode: true });
         if (res.data._id) {
           this.setState({ userId: res.data._id });
+          this.props.history.push("/auth/login");
         }
       }
     });

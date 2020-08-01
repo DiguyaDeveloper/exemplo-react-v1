@@ -132,7 +132,7 @@ class Header extends React.Component {
             navbar
             className="justify-content-end"
           >
-            <form>
+            {/* <form>
               <InputGroup className="no-border">
                 <Input placeholder="Search..." />
                 <InputGroupAddon addonType="append">
@@ -141,9 +141,9 @@ class Header extends React.Component {
                   </InputGroupText>
                 </InputGroupAddon>
               </InputGroup>
-            </form>
+            </form> */}
             <Nav navbar>
-              <Dropdown
+              {/* <Dropdown
                 nav
                 isOpen={this.state.dropdownOpen}
                 toggle={(e) => this.dropdownToggle(e)}
@@ -159,7 +159,7 @@ class Header extends React.Component {
                   <DropdownItem tag="a">Another Action</DropdownItem>
                   <DropdownItem tag="a">Something else here</DropdownItem>
                 </DropdownMenu>
-              </Dropdown>
+              </Dropdown> */}
             </Nav>
           </Collapse>
         </Container>

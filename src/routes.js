@@ -1,9 +1,10 @@
 import Dashboard from "views/Dashboard.js";
-import UserPage from "views/User.js";
 import RegisterUser from "views/RegisterUser";
 import Register from "views/Register";
 import Login from "views/Login";
 import Home from "views/Home";
+
+import Logout from "views/Logout";
 
 var routes = [
   {
@@ -21,19 +22,11 @@ var routes = [
     layout: "/admin",
   },
   {
-    path: "/user-page",
-    name: "User Profile",
-    icon: "nc-icon nc-single-02",
-    component: UserPage,
-    layout: "/admin",
-  },
-  {
-    pro: true,
-    path: "/upgrade",
+    path: "/",
     name: "LOGOUT",
     icon: "nc-icon nc-spaceship",
-    component: Dashboard,
-    layout: "/admin",
+    component: Logout,
+    layout: "/home",
   },
   {
     path: "/login",
@@ -41,6 +34,7 @@ var routes = [
     icon: "ni ni-key-25 text-info",
     component: Login,
     layout: "/auth",
+    active: false,
   },
   {
     path: "/register",
@@ -48,6 +42,7 @@ var routes = [
     icon: "ni ni-circle-08 text-pink",
     component: Register,
     layout: "/auth",
+    active: false,
   },
   {
     path: "/",
