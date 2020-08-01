@@ -53,9 +53,12 @@ class Header extends React.Component {
   getBrand() {
     let brandName = "Default Brand";
     routes.map((prop, key) => {
-      if (window.location.href.indexOf(prop.layout + prop.path) !== -1) {
+      if (window.location.href.indexOf(prop.identifier) !== -1) {
+
         brandName = prop.name;
       }
+
+
       return null;
     });
     return brandName;
