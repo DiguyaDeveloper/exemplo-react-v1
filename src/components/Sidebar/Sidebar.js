@@ -115,10 +115,10 @@ class Sidebar extends React.Component {
                 <img src={this.state.img_user} alt="user - Image" />
               </div>
             </div>
-            <p> {fullname} </p>
+            <p className="text-uppercase"> {fullname} </p>
             <p>
               {" "}
-              {state} - {country}{" "}
+              {/* {state} -*/} {country}{" "}
             </p>
           </div>
         </div>

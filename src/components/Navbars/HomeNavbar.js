@@ -1,5 +1,6 @@
 import React from "react";
 
+import { Link } from "react-router-dom";
 // reactstrap components
 import { NavItem, NavLink, Nav, Container, Row, Col } from "reactstrap";
 
@@ -21,10 +22,11 @@ class Login extends React.Component {
           </div>
           <div class="user">
             <button type="submit" class="login">
-              Log in
+              <Link to={"/auth/login"}>Log in </Link>
             </button>
-            <button type="submit" class="sign-up">
-              Sign up
+
+            <button type="submit" class="login">
+              <Link to={"/auth/register"}>Sign up</Link>
             </button>
           </div>
         </div>

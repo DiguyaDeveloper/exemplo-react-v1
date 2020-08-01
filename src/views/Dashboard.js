@@ -22,7 +22,13 @@ class Dashboard extends React.Component {
   render() {
     return (
       <>
-        <div className="content"></div>
+        <div className="content">
+          <iframe
+            width="1024"
+            height="600"
+            src="http://127.0.0.1:3003/index.html"
+          ></iframe>
+        </div>
       </>
     );
   }

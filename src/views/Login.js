@@ -94,7 +94,7 @@ class Login extends React.Component {
         const userLogin = res.data.user;
         usuario(userLogin);
         console.log(userLogin);
-        this.props.history.push("/admin/dashboard");
+        this.props.history.push("/admin/hashtags");
       }
       if (res.error) {
         if (res.error && res.userStatusBlock) {

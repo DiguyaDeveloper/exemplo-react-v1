@@ -386,6 +386,7 @@ class RegisterUser extends React.Component {
                             className="btn-round"
                             color="primary"
                             type="submit"
+                            disabled
                             onClick={this.handleSubmit}
                           >
                             Update Profile
